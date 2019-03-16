@@ -1,8 +1,8 @@
 package com.james.poll.model;
 
+import com.james.poll.model.audit.DateAudit;
 import org.hibernate.annotations.NaturalId;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
