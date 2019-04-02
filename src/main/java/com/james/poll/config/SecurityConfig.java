@@ -1,5 +1,8 @@
 package com.james.poll.config;
 
+import com.james.poll.Security.CustomUserDetailsService;
+import com.james.poll.Security.JwtAuthenticationEntryPoint;
+import com.james.poll.Security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

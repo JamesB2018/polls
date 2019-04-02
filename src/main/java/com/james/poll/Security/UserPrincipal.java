@@ -1,7 +1,7 @@
 package com.james.poll.Security;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.james.poll.model.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +17,6 @@ public class UserPrincipal implements UserDetails {
     private String name;
 
     private String username;
-
 
     @JsonIgnore
     private String email;
@@ -37,8 +36,9 @@ public class UserPrincipal implements UserDetails {
     }
 
     public static UserPrincipal create(User user) {
-        List<GrantedAuthority> authorities = user.getRoles().stream().map(role -> new SimpleGrantedAuthority((role.getName().name))
-        .collect(Collectors.toList()));
+        List<GrantedAuthority> authorities = user.getRoles().stream().map(role ->
+                new SimpleGrantedAuthority(role.getName().name())
+        ).collect(Collectors.toList());
 
         return new UserPrincipal(
                 user.getId(),
@@ -49,6 +49,7 @@ public class UserPrincipal implements UserDetails {
                 authorities
         );
     }
+
     public Long getId() {
         return id;
     }
@@ -106,6 +107,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(id);
     }
 }
